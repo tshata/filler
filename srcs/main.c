@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 09:43:35 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/13 16:39:09 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/22 17:43:49 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <fcntl.h>
 #include "../includes/filler.h"
 
-int				main(void)
+int	main(void)
 {
-	t_filler	*filler;
+	t_filler	*f;
 	char		*line;
+	int			fd;
 
+	fd = 0;
+	fd = open("./test.txt", O_RDONLY);
 	line = NULL;
-	filler = init_filler();
-	read_player(filler);
+	f = init_filler();
+	read_player(f, fd);
 	while (1)
 	{
-		get_next_line(0, &line);
-		get_map(filler, line);
-		ft_strdel(&line);
-		get_token(filler);
-		moves(filler);
-		place(filler);
-		memory_manage(filler);
-		if (filler->game_over == 1)
-			break;
+		get_map(f, fd);
+		get_trim_token(f, fd);
+		moves(f);
+		memory_manage(f);
+		if (f->game_over == 1)
+			break ;
 	}
 	return (0);
 }

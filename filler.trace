@@ -1,5 +1,3 @@
-seed = 2870
+seed = 8914
 O: timedout
-./resources/players/carli.filler won
-Score:
-3AGAINST150
+./resources/players/tshata.filler: Segfault at 0

@@ -19,8 +19,8 @@ static	int	ft_iswhitespace(int s)
 
 char		*ft_strtrim(const char *s)
 {
-	int			i;
-	int			len;
+	size_t			i;
+	size_t			len;
 	char			*str;
 
 	if (!s)

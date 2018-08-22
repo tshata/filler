@@ -6,16 +6,17 @@
 /*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 11:56:57 by tshata            #+#    #+#             */
-/*   Updated: 2018/06/22 12:29:31 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/22 16:44:59 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
 	char	*str;
-	int	i;
+	size_t	i;
 
 	i = ft_strlen(s);
 	str = ft_memalloc(i + 1);

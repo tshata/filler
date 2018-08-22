@@ -14,7 +14,7 @@
 
 int	ft_strequ(char const *s1, char const *s2)
 {
-	int	j;
+	size_t	j;
 
 	if (s1 && s2)
 	{

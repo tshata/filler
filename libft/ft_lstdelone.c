@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-
-void	ft_lstdelone(t_list **alst, void (*del)(void *, int))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
 	if (!(*alst))
 		return ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   offset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 14:57:03 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/13 16:06:14 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/22 17:06:28 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ** off[3] = bottom.
 */
 
-void		top_offset(t_filler *filler)
+void		top_offset(t_filler *f)
 {
 	int	dim[2];
 	int	count;
@@ -29,12 +29,12 @@ void		top_offset(t_filler *filler)
 	dim[0] = 0;
 	count = 0;
 	end = 0;
-	while (dim[0] < filler->token_y)
+	while (dim[0] < f->token_y)
 	{
 		dim[1] = 0;
-		while (dim[1] < filler->token_x)
+		while (dim[1] < f->token_x)
 		{
-			if (filler->token[dim[0]][dim[1]] == '*')
+			if (f->token[dim[0]][dim[1]] == '*')
 			{
 				end = 1;
 				break ;
@@ -46,52 +46,53 @@ void		top_offset(t_filler *filler)
 		count++;
 		dim[0] += 1;
 	}
-	filler->off[1] = count;
+	f->off[1] = count;
 }
-void		bottom_offset(t_filler *filler)
+
+void		bottom_offset(t_filler *f)
 {
 	int	dim[2];
 	int	count;
 	int	end;
 
-	dim[0] = filler->token_y - 1;
+	dim[0] = f->token_y - 1;
 	count = 0;
 	end = 0;
-	while(dim[0] > 0)
+	while (dim[0] > 0)
 	{
 		dim[1] = 0;
-		while (dim[1] < filler->token_x)
+		while (dim[1] < f->token_x)
 		{
-			if (filler->token[dim[0]][dim[1]] == '*')
+			if (f->token[dim[0]][dim[1]] == '*')
 			{
 				end = 1;
-				break;
+				break ;
 			}
 			dim[1] += 1;
 		}
 		if (end)
-			break;
+			break ;
 		count++;
 		dim[0] -= 1;
 	}
-	filler->off[3] = count;
+	f->off[3] = count;
 }
 
-void		right_offset(t_filler *filler)
+void		right_offset(t_filler *f)
 {
 	int	dim[2];
 	int	count;
 	int	end;
 
-	dim[1] = filler->token_x - 1;
+	dim[1] = f->token_x - 1;
 	count = 0;
 	end = 0;
-	while(dim[1] > 0)
+	while (dim[1] > 0)
 	{
 		dim[0] = 0;
-		while (dim[0] < filler->token_y)
+		while (dim[0] < f->token_y)
 		{
-			if (filler->token[dim[0]][dim[1]] == '*')
+			if (f->token[dim[0]][dim[1]] == '*')
 			{
 				end = 1;
 				break ;
@@ -99,14 +100,14 @@ void		right_offset(t_filler *filler)
 			dim[0] += 1;
 		}
 		if (end)
-			break;
+			break ;
 		count++;
 		dim[1] -= 1;
 	}
-	filler->off[2] = count;
+	f->off[2] = count;
 }
 
-void		left_offset(t_filler *filler)
+void		left_offset(t_filler *f)
 {
 	int	dim[2];
 	int	count;
@@ -115,12 +116,12 @@ void		left_offset(t_filler *filler)
 	dim[1] = 0;
 	count = 0;
 	end = 0;
-	while (dim[1] < filler->token_x)
+	while (dim[1] < f->token_x)
 	{
 		dim[0] = 0;
-		while (dim[0] < filler->token_y)
+		while (dim[0] < f->token_y)
 		{
-			if (filler->token[dim[0]][dim[1]] == '*')
+			if (f->token[dim[0]][dim[1]] == '*')
 			{
 				end = 1;
 				break ;
@@ -132,13 +133,13 @@ void		left_offset(t_filler *filler)
 		count++;
 		dim[1] += 1;
 	}
-	filler->off[0] = count;
+	f->off[0] = count;
 }
 
-void		calculate_offset(t_filler *filler)
+void		calculate_offset(t_filler *f)
 {
-	top_offset(filler);
-	bottom_offset(filler);
-	right_offset(filler);
-	left_offset(filler);
+	top_offset(f);
+	bottom_offset(f);
+	right_offset(f);
+	left_offset(f);
 }

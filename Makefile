@@ -6,13 +6,13 @@
 #    By: tshata <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/10 09:42:04 by tshata            #+#    #+#              #
-#    Updated: 2018/08/13 16:59:22 by tshata           ###   ########.fr        #
+#    Updated: 2018/08/22 15:17:56 by tshata           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Binary
 
-NAME = ./resources/players/tshata.filler
+NAME = ./srcs/filler
 
 # Path
 
@@ -43,12 +43,12 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 # Flags
 
-LDFLAGS+= -L ~/Documents/tshata/libft -lft
+LDFLAGS+= -L ./libft -lft
 
 CC = gcc $(CFLAGS)
 #-fsanitize=address
 
-CFLAGS = -Wall -Wextra -Werror -I. 
+CFLAGS = -Wall -Wextra -Werror -I. -g
 
 # Rules
 

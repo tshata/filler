@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memalloc(int size)
+void	*ft_memalloc(size_t size)
 {
 	char	*mem;
 

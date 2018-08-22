@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/21 14:58:45 by tshata            #+#    #+#             */
-/*   Updated: 2018/07/21 15:01:09 by tshata           ###   ########.fr       */
+/*   Created: 2018/08/22 15:07:13 by tshata            #+#    #+#             */
+/*   Updated: 2018/08/22 15:14:58 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	ft_sqr(long long value)
+long long		ft_sqr(int n)
 {
-	return (value * value);
+	return (n * n);
 }

@@ -6,13 +6,13 @@
 /*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/27 12:34:12 by tshata            #+#    #+#             */
-/*   Updated: 2018/07/01 13:03:27 by tshata           ###   ########.fr       */
+/*   Updated: 2018/06/21 13:08:19 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(int size)
+char	*ft_strnew(size_t size)
 {
 	char *str;
 

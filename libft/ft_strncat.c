@@ -6,16 +6,16 @@
 /*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 09:00:49 by tshata            #+#    #+#             */
-/*   Updated: 2018/06/26 12:36:13 by tshata           ###   ########.fr       */
+/*   Updated: 2018/06/21 17:08:17 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, int n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	j = 0;
 	i = 0;
