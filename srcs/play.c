@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 12:34:56 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 17:28:36 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/23 17:39:34 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int 	check_overlap(t_filler *f, int y, int x)
 	return (overlap == 1 ? 1 : 0);
 }
 
-void	moves(t_filler *f)
+int		moves(t_filler *f)
 {
 	int y;
 	int x;
@@ -93,10 +93,11 @@ void	moves(t_filler *f)
 			  	ft_putchar(' ');
 				ft_putnbr(x - f->off[0]);
 				ft_putchar('\n');
-				return ;
+				return (1);
 			}
 			x++;
 		}
 		y++;
 	}
+	return (0);
 }
