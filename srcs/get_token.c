@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 15:52:43 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/22 17:48:19 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/23 15:59:49 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	get_token(t_filler *f, int fd)
 	char	*line;
 
 	line = NULL;
-	while (get_next_line(fd, &line))
-		if (ft_strstr(line, "Piece"))
-			break ;
+	get_next_line(fd, &line);
 	f->token_y = ft_atoi(&line[6]);
 	f->token_x = ft_atoi(&line[8]);
 	if (!(f->token = (char **)ft_memalloc(sizeof(char *) * f->token_y)))
@@ -35,24 +33,18 @@ void	get_token(t_filler *f, int fd)
 	calculate_offset(f);
 }
 
-void	get_trim_token(t_filler *f, int fd)
+void	get_trim_token(t_filler *f)
 {
 	int		y;
-	char	*line;
-	
-	line = NULL;
-	while(get_next_line(fd, &line))
-		if(ft_strstr(line, "Piece"))
-			break;
-	if (!(f->trim_token = (char **)ft_memalloc(sizeof(char *) * f->token_y - f->off[1] + f->off[3])))
+
+	f->trim_token_y = f->token_y - f->off[3] - f->off[1];
+	f->trim_token_x = f->token_x - f->off[0] - f->off[2];
+	if (!(f->trim_token = (char **)ft_memalloc(sizeof(char *) * f->trim_token_y)))
 		return ;
-	y = 0;
-	y = y + f->off[1];
+	y = f->off[1];
 	while (y < f->token_y - f->off[3])
 	{
-		get_next_line(fd, &line);
-		f->trim_token[y] = ft_strsub(line, f->off[0], f->token_x - f->off[2]);
-		ft_putstr(f->trim_token[y]);
+		f->trim_token[y - f->off[1]] = ft_strsub(f->token[y], f->off[0], f->trim_token_x);
 		y++;
 	}
 }

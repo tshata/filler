@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_filler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 15:47:40 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/22 17:10:19 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/23 17:01:32 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void		read_player(t_filler *f, int fd)
 	char	*line;
 
 	i = 0;
+	line = NULL;
 	get_next_line(fd, &line);
 	while (!ft_isdigit(line[i]) && line[i])
 		i++;
@@ -31,6 +32,13 @@ void		read_player(t_filler *f, int fd)
 		f->me = 'x';
 		f->enemy = 'o';
 	}
+/*	f->me = ft_atoi(line + 10) == '1' ? 'o' : 'x';
+	f->enemy = f->me == 'x' ? 'o' : 'x';*/
+/*	ft_putchar(f->me);
+	ft_putchar(' ');
+	ft_putchar(f->enemy);
+	ft_putchar('\n');*/
+	ft_strdel(&line);
 }
 
 t_filler	*init_filler(void)
@@ -38,14 +46,6 @@ t_filler	*init_filler(void)
 	t_filler *f;
 
 	f = (t_filler *)ft_memalloc(sizeof(t_filler));
-	f->me = '-';
-	f->enemy = '-';
-	f->map_x = 0;
-	f->map_y = 0;
-	f->token_x = 0;
-	f->token_y = 0;
-	f->trim_token_y = 0;
-	f->trim_token_x = 0;
 	f->map = NULL;
 	f->token = NULL;
 	f->trim_token = NULL;
@@ -54,8 +54,8 @@ t_filler	*init_filler(void)
 	f->off[1] = 0;
 	f->off[2] = 0;
 	f->off[3] = 0;
-	f->play = ft_memalloc(sizeof(t_plays));
-	f->play->place = 0;
-	f->play->dst = 20000000;
+//	f->play = ft_memalloc(sizeof(t_plays));
+//	f->play->place = 0;
+//	f->play->dst = 20000000;
 	return (f);
 }
