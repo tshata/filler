@@ -6,7 +6,7 @@
 #    By: tshata <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/10 09:42:04 by tshata            #+#    #+#              #
-#    Updated: 2018/08/23 15:18:07 by tshata           ###   ########.fr        #
+#    Updated: 2018/08/25 15:27:17 by tshata           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC_NAME =	main.c\
 			get_map.c\
 			offset.c\
 			printcut.c\
+			algo.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

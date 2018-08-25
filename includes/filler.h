@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 09:55:27 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 17:39:28 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/25 15:26:33 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ void			compare_dst(t_filler *f, int l, int m);
 void			get_token(t_filler *f, int fd);
 void			get_trim_token(t_filler *f);
 int				moves(t_filler *f);
-void			place(t_filler *f);
+void			place(t_filler *f, int i, int j);
 long long		ft_sqr(int n);
+void			dst_move(t_filler *f, int i, int j);
 void			printcut(t_filler *f);
 int				check_overlap(t_filler *f, int l, int m);
 void			calculate_offset(t_filler *f);

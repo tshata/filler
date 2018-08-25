@@ -6,26 +6,18 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 12:34:56 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 17:39:34 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/25 16:52:33 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
 
-void	place(t_filler *f)
+void		place(t_filler *f, int y, int x)
 {
-	if (f->play->place == 1)
-	{
-		ft_putnbr(f->play->coords[0] + f->off[1]);
-		ft_putchar(' ');
-		ft_putnbr(f->play->coords[1] + f->off[0]);
-		ft_putchar('\n');
-	}
-	else
-	{
-		ft_putendl("0 0");
-		f->game_over = 1;
-	}
+	ft_putnbr(y - f->off[1]);
+	ft_putchar(' ');
+	ft_putnbr(x - f->off[0]);
+	ft_putchar('\n');
 }
 
 static	int	on_my_terr(t_filler *f, int y, int x)
@@ -42,7 +34,7 @@ static	int	on_en_terr(t_filler *f, int y, int x)
 	return (0);
 }
 
-int 	check_overlap(t_filler *f, int y, int x)
+int			check_overlap(t_filler *f, int y, int x)
 {
 	int i;
 	int j;
@@ -52,7 +44,7 @@ int 	check_overlap(t_filler *f, int y, int x)
 	temp = x;
 	overlap = 0;
 	i = 0;
-	while(i < f->trim_token_y)
+	while (i < f->trim_token_y)
 	{
 		j = 0;
 		x = temp;
@@ -60,9 +52,8 @@ int 	check_overlap(t_filler *f, int y, int x)
 		{
 			if (f->trim_token[i][j] == '*')
 			{
-				if (on_my_terr(f, y, x))
-					overlap++;
-				else if (on_en_terr(f, y, x))
+				overlap += (on_my_terr(f, y, x)) ? 1 : 0;
+				if (on_en_terr(f, y, x))
 					return (0);
 			}
 			j++;
@@ -76,11 +67,11 @@ int 	check_overlap(t_filler *f, int y, int x)
 	return (overlap == 1 ? 1 : 0);
 }
 
-int		moves(t_filler *f)
+int			moves(t_filler *f)
 {
 	int y;
 	int x;
-	
+
 	y = 0;
 	while (y <= f->map_y - f->trim_token_y)
 	{
@@ -89,10 +80,7 @@ int		moves(t_filler *f)
 		{
 			if (check_overlap(f, y, x))
 			{
-				ft_putnbr(y - f->off[1]);
-			  	ft_putchar(' ');
-				ft_putnbr(x - f->off[0]);
-				ft_putchar('\n');
+				choose_move(f, y, x);
 				return (1);
 			}
 			x++;
