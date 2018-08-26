@@ -31,8 +31,8 @@ static int	place_small2(t_filler *f, int l, int m)
 //	place(f, i, j);
 	return (0);
 }
-*/
-static void	place_mid2(t_filler *f, int l, int m)
+
+static void	second_move(t_filler *f, int l, int m)
 {
 	int i;
 	int j;
@@ -57,10 +57,12 @@ static void	place_mid2(t_filler *f, int l, int m)
 	place(f, i, j);
 	return ;
 }
-
-void		choose_move(t_filler *f, int l, int m)
+*/
+void		first_move(t_filler *f, int l, int m)
 {
-	if (f->me == 'x' && f->map_y == 24)
+/*	if (f->me == 'x' && f->map_y == 100)
+		place(f, l, m);
+	else if (f->me == 'x' && f->map_y == 24)
 		place(f, l, m);
 	else if (f->me == 'o' && f->map_y == 24)
 		place_mid2(f, l, m);
@@ -69,5 +71,5 @@ void		choose_move(t_filler *f, int l, int m)
 	else if (f->me == 'o' && f->map_y == 15)
 		place_mid2(f, l, m); 
 	else
-		place(f, l, m);
+*/		place(f, l, m);
 }

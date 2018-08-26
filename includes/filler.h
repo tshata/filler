@@ -22,6 +22,13 @@ typedef struct	s_play
 	int			coords[3];
 }				t_plays;
 
+typedef struct	s_moves
+{
+	int y;
+	int x;
+	struct s_moves *next;
+}		t_moves;
+
 typedef	struct	s_filler
 {
 	char		me;
@@ -39,12 +46,14 @@ typedef	struct	s_filler
 	int			game_over;
 	t_plays		*play;
 }				t_filler;
-
+void       push_back(t_moves **head, t_moves *node);
 void			memory_manage(t_filler *f);
-void			choose_move(t_filler *f, int l, int m);
+void			first_move(t_filler *f, int l, int m);
 void			get_map(t_filler *f, int fd,char **line);
 void			read_player(t_filler *f, int fd);
 t_filler		*init_filler();
+t_moves         *new_node(int y, int x);
+int			best_move(t_filler *f, t_moves *head);
 int				pythagoras(int l, int m, int *coords);
 int				dst(t_filler *f, int l, int m);
 void			compare_dst(t_filler *f, int l, int m);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 09:43:35 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/24 16:23:02 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/26 17:34:13 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(void)
 	int			fd;
 
 	fd = 0;
+//	fd = open("../test.txt", O_RDONLY);
 	line = NULL;
 	f = init_filler();
 	read_player(f, fd);

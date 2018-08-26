@@ -54,8 +54,8 @@ t_filler	*init_filler(void)
 	f->off[1] = 0;
 	f->off[2] = 0;
 	f->off[3] = 0;
-//	f->play = ft_memalloc(sizeof(t_plays));
-//	f->play->place = 0;
-//	f->play->dst = 20000000;
+	f->play = ft_memalloc(sizeof(t_plays));
+	f->play->place = 0;
+	f->play->dst = 20000000;
 	return (f);
 }

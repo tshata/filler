@@ -67,11 +67,41 @@ int			check_overlap(t_filler *f, int y, int x)
 	return (overlap == 1 ? 1 : 0);
 }
 
+int			best_move(t_filler *f, t_moves *head)
+{
+	int 	max;
+	int	pos[2];
+
+	max = 2147483647;
+	if (head == NULL)
+		return (0);
+	else
+	{
+		while(head)
+		{
+			if (dst(f, head->y, head->x) < max)
+			{
+				max = dst(f, head->y, head->x);
+				pos[0] = head->y;
+				pos[1] = head->x;
+			}
+			head = head->next;
+		}
+	}
+	ft_putnbr(pos[0] - f->off[1]);
+	ft_putchar(' ');
+	ft_putnbr(pos[1] - f->off[0]);
+	ft_putchar('\n');
+	return (1);
+}
 int			moves(t_filler *f)
 {
 	int y;
 	int x;
+	t_moves *head;
 
+
+	head = NULL;
 	y = 0;
 	while (y <= f->map_y - f->trim_token_y)
 	{
@@ -80,12 +110,18 @@ int			moves(t_filler *f)
 		{
 			if (check_overlap(f, y, x))
 			{
-				choose_move(f, y, x);
-				return (1);
+				if (f->me == 'x' && (f->map_y != 100)) 
+				{
+					first_move(f, y, x);
+					return (1);
+				}
+				push_back(&head, new_node(y, x)); 
 			}
 			x++;
 		}
 		y++;
 	}
+	if (best_move(f, head))
+		return (1);
 	return (0);
 }
