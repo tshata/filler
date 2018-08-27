@@ -6,19 +6,11 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 12:34:56 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/25 16:52:33 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 11:03:48 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filler.h"
-
-void		place(t_filler *f, int y, int x)
-{
-	ft_putnbr(y - f->off[1]);
-	ft_putchar(' ');
-	ft_putnbr(x - f->off[0]);
-	ft_putchar('\n');
-}
 
 static	int	on_my_terr(t_filler *f, int y, int x)
 {
@@ -36,40 +28,36 @@ static	int	on_en_terr(t_filler *f, int y, int x)
 
 int			check_overlap(t_filler *f, int y, int x)
 {
-	int i;
-	int j;
-	int	overlap;
-	int	temp;
+	int		temp;
+	int		pos[3];
 
 	temp = x;
-	overlap = 0;
-	i = 0;
-	while (i < f->trim_token_y)
+	pos[2] = 0;
+	pos[0] = 0;
+	while (pos[0] < f->trim_token_y)
 	{
-		j = 0;
+		pos[1] = 0;
 		x = temp;
-		while (j < f->trim_token_x)
+		while (pos[1] < f->trim_token_x)
 		{
-			if (f->trim_token[i][j] == '*')
+			if (f->trim_token[pos[0]][pos[1]] == '*')
 			{
-				overlap += (on_my_terr(f, y, x)) ? 1 : 0;
+				pos[2] += (on_my_terr(f, y, x)) ? 1 : 0;
 				if (on_en_terr(f, y, x))
 					return (0);
 			}
-			j++;
 			x++;
-			if (overlap > 1)
-				return (0);
+			pos[1] += 1;
 		}
-		i++;
+		pos[0] += 1;
 		y++;
 	}
-	return (overlap == 1 ? 1 : 0);
+	return (pos[2] == 1 ? 1 : 0);
 }
 
 int			best_move(t_filler *f, t_moves *head)
 {
-	int 	max;
+	int	max;
 	int	pos[2];
 
 	max = 2147483647;
@@ -77,7 +65,7 @@ int			best_move(t_filler *f, t_moves *head)
 		return (0);
 	else
 	{
-		while(head)
+		while (head)
 		{
 			if (dst(f, head->y, head->x) < max)
 			{
@@ -88,18 +76,15 @@ int			best_move(t_filler *f, t_moves *head)
 			head = head->next;
 		}
 	}
-	ft_putnbr(pos[0] - f->off[1]);
-	ft_putchar(' ');
-	ft_putnbr(pos[1] - f->off[0]);
-	ft_putchar('\n');
+	place(f, pos[0], pos[1]);
 	return (1);
 }
+
 int			moves(t_filler *f)
 {
-	int y;
-	int x;
-	t_moves *head;
-
+	int		y;
+	int		x;
+	t_moves	*head;
 
 	head = NULL;
 	y = 0;
@@ -110,18 +95,16 @@ int			moves(t_filler *f)
 		{
 			if (check_overlap(f, y, x))
 			{
-				if (f->me == 'x' && (f->map_y != 100)) 
+				if (f->map_y == 100)
 				{
-					first_move(f, y, x);
+					place(f, y, x);
 					return (1);
 				}
-				push_back(&head, new_node(y, x)); 
+				push_back(&head, new_node(y, x));
 			}
 			x++;
 		}
 		y++;
 	}
-	if (best_move(f, head))
-		return (1);
-	return (0);
+	return (best_move(f, head)) > 0 ? 1 : 0;
 }

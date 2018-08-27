@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 09:55:27 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/25 15:26:33 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 09:59:35 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct	s_play
 
 typedef struct	s_moves
 {
-	int y;
-	int x;
-	struct s_moves *next;
-}		t_moves;
+	int				y;
+	int				x;
+	struct s_moves	*next;
+}				t_moves;
 
 typedef	struct	s_filler
 {
@@ -46,14 +46,14 @@ typedef	struct	s_filler
 	int			game_over;
 	t_plays		*play;
 }				t_filler;
-void       push_back(t_moves **head, t_moves *node);
+
+void			push_back(t_moves **head, t_moves *node);
 void			memory_manage(t_filler *f);
-void			first_move(t_filler *f, int l, int m);
-void			get_map(t_filler *f, int fd,char **line);
+void			get_map(t_filler *f, int fd, char **line);
 void			read_player(t_filler *f, int fd);
 t_filler		*init_filler();
-t_moves         *new_node(int y, int x);
-int			best_move(t_filler *f, t_moves *head);
+t_moves			*new_node(int y, int x);
+int				best_move(t_filler *f, t_moves *head);
 int				pythagoras(int l, int m, int *coords);
 int				dst(t_filler *f, int l, int m);
 void			compare_dst(t_filler *f, int l, int m);
@@ -63,7 +63,6 @@ int				moves(t_filler *f);
 void			place(t_filler *f, int i, int j);
 long long		ft_sqr(int n);
 void			dst_move(t_filler *f, int i, int j);
-void			printcut(t_filler *f);
 int				check_overlap(t_filler *f, int l, int m);
 void			calculate_offset(t_filler *f);
 #endif

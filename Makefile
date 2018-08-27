@@ -6,13 +6,13 @@
 #    By: tshata <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/10 09:42:04 by tshata            #+#    #+#              #
-#    Updated: 2018/08/25 15:27:17 by tshata           ###   ########.fr        #
+#    Updated: 2018/08/27 09:46:17 by tshata           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Binary
 
-NAME = ./srcs/filler
+NAME = ./filler
 
 # Path
 
@@ -29,11 +29,10 @@ SRC_NAME =	main.c\
 			get_token.c\
 			play.c\
 			init_filler.c\
-			dist.c\
 			get_map.c\
 			offset.c\
-			printcut.c\
 			algo.c\
+			moves_handler.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

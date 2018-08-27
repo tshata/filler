@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 15:52:43 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 15:59:49 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 09:34:33 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ void	get_trim_token(t_filler *f)
 
 	f->trim_token_y = f->token_y - f->off[3] - f->off[1];
 	f->trim_token_x = f->token_x - f->off[0] - f->off[2];
-	if (!(f->trim_token = (char **)ft_memalloc(sizeof(char *) * f->trim_token_y)))
+	if (!(f->trim_token = (char **)ft_memalloc(sizeof(char *) *
+					f->trim_token_y)))
 		return ;
 	y = f->off[1];
 	while (y < f->token_y - f->off[3])
 	{
-		f->trim_token[y - f->off[1]] = ft_strsub(f->token[y], f->off[0], f->trim_token_x);
+		f->trim_token[y - f->off[1]] = ft_strsub(f->token[y], f->off[0],
+				f->trim_token_x);
 		y++;
 	}
 }

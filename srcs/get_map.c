@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 15:52:54 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/24 16:03:30 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 09:33:00 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	get_map(t_filler *f, int fd, char **line)
 {
 	int		y;
-	
+
 	y = 0;
 	f->map_y = ft_atoi(*line + 8);
 	f->map_x = ft_atoi(*line + 11);

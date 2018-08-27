@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 15:47:40 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 17:01:32 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 09:35:20 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ void		read_player(t_filler *f, int fd)
 		f->me = 'x';
 		f->enemy = 'o';
 	}
-/*	f->me = ft_atoi(line + 10) == '1' ? 'o' : 'x';
-	f->enemy = f->me == 'x' ? 'o' : 'x';*/
-/*	ft_putchar(f->me);
-	ft_putchar(' ');
-	ft_putchar(f->enemy);
-	ft_putchar('\n');*/
 	ft_strdel(&line);
 }
 

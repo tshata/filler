@@ -6,7 +6,7 @@
 /*   By: tshata <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 16:31:04 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/23 17:15:53 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 10:03:45 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # define BUFF_SIZE 1
+
 typedef	struct		s_list
 {
 	void			*content;

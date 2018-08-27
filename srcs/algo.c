@@ -6,7 +6,7 @@
 /*   By: tshata <tshata@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/21 14:45:00 by tshata            #+#    #+#             */
-/*   Updated: 2018/08/25 16:21:46 by tshata           ###   ########.fr       */
+/*   Updated: 2018/08/27 09:31:32 by tshata           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,3 @@ int		dst(t_filler *f, int y, int x)
 	}
 	return (coords[2]);
 }
-/*
-void	dst_move(t_filler *f, int y, int x)
-{
-	if (f->play->dst > dst(f, y, x))
-	{
-		f->play->coords[0] = y;
-		f->play->coords[1] = x;
-		f->play->dst = (dst(f, y, x));
-	}
-	else
-	{
-		f->play->coords[0] = y;
-		f->play->coords[1] = x;
-	}
-	place(f, f->play->coords[0], f->play->coords[1]);
-}*/
