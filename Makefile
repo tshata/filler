@@ -6,7 +6,7 @@
 #    By: tshata <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/10 09:42:04 by tshata            #+#    #+#              #
-#    Updated: 2018/08/27 09:46:17 by tshata           ###   ########.fr        #
+#    Updated: 2019/11/06 14:23:53 by tshata           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(INC_PATH)
 	@make -C./libft/
 	@echo "\033[34mCreation of $(NAME) ...\033[0m"
-	@$(CC) $(LDFLAGS) $(OBJ) -o $@
+	@$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
 	@echo "\033[32m$(NAME) created\n\033[0m"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
